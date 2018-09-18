@@ -23,16 +23,16 @@ public class TicTacToeView {
     public void showNextMovePrompt() {
 
         /* Display a prompt for the player's next move (see examples) */
-
-        /* INSERT YOUR CODE HERE */
-
+        if (model.isXTurn() == true){
+            System.out.println("Player 1 (X) move");
+        }
+        else{
+            System.out.println("Player 2 (O) move");
+        }
     }
-
     public void showInputError() {
 
         /* Display an error if input is invalid (see examples) */
-
-        /* INSERT YOUR CODE HERE */
 
     }
 
