@@ -1,5 +1,7 @@
 package edu.jsu.mcis;
 
+import jdk.nashorn.internal.ir.CatchNode;
+
 public class TicTacToeModel {
     
     private static final int DEFAULT_WIDTH = 3;
@@ -73,11 +75,15 @@ public class TicTacToeModel {
         
         /* Create grid (width x width) as a 2D Mark array */
 
-        /* INSERT YOUR CODE HERE */
-
+        Mark[][] grid = new Mark[width][width];
+       
         /* Initialize grid by filling every square with empty marks */
-
-        /* INSERT YOUR CODE HERE */
+        for (int i = 0; i < width; i++){
+            for (int j = 0; j < width; j++) {
+                grid[i][j] = Mark.EMPTY;
+            }
+        }
+        
         
     }
 	
@@ -86,41 +92,66 @@ public class TicTacToeModel {
         /* Place the current player's mark in the square at the specified
            location, but only if the location is valid and if the square is
            empty! */
+        if (isValidSquare(row, col) && isSquareMarked(row, col) == false){
+            if(xTurn){
+                grid[row][col] = Mark.X;
+                return true;
+            }
+            else{
+                grid[row][col] = Mark.O;
+                return true;
+            }
+        }
+        else{
+            return false;
+        }
         
-        /* INSERT YOUR CODE HERE */
 
-        return false; /* remove this line! */
+        
         
     }
 	
     private boolean isValidSquare(int row, int col) {
         
         /* Return true if specified location is within grid bounds */
-        
-        /* INSERT YOUR CODE HERE */
 
-        return false; /* remove this line! */
+        try{
+            Mark checking = grid[row][col];
+            return true;
+        }
+        catch(exception x){
+            return false;
+        }
+        
         
     }
 	
     private boolean isSquareMarked(int row, int col) {
         
         /* Return true if square at specified location is marked */
+        if(isValidSquare(row, col)){
+            if(grid[row][col]) = Mark.EMPTY ){
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
         
-        /* INSERT YOUR CODE HERE */
 
-        return false; /* remove this line! */
+       
             
     }
 	
     public Mark getMark(int row, int col) {
         
         /* Return mark from the square at the specified location */
-        
-        /* INSERT YOUR CODE HERE */
-
-        return null; /* remove this line! */
-            
+       if(isValidSquare){ 
+       return grid[row][col];
+       }
+       else{
+           return null;
+       }
     }
 	
     public Result getResult() {
@@ -129,7 +160,7 @@ public class TicTacToeModel {
            tie, or if the game is not over, and return the corresponding Result
            value */
         
-        /* INSERT YOUR CODE HERE */
+       
 
         return null; /* remove this line! */
 
@@ -139,10 +170,18 @@ public class TicTacToeModel {
         
         /* Check the squares of the board to see if the specified mark is the
            winner */
-        
-        /* INSERT YOUR CODE HERE */
-
-        return false; /* remove this line! */
+        if(isMarkWin(Mark.X) == false){
+            return Result.X;
+        }
+        else if(isMarkWin(Mark.O) == false){
+            return Result.O;
+        }
+        else if (isTie()){
+            return Result.TIE;
+        }
+        else {
+            return Result.NONE;
+        }
 
     }
 	
