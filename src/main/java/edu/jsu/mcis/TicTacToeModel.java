@@ -83,8 +83,6 @@ public class TicTacToeModel {
                 grid[i][j] = Mark.EMPTY;
             }
         }
-        
-        
     }
 	
     public boolean makeMark(int row, int col) {
@@ -112,9 +110,6 @@ public class TicTacToeModel {
     }
 	
     private boolean isValidSquare(int row, int col) {
-        
-        /* Return true if specified location is within grid bounds */
-
         try{
             Mark checking = grid[row][col];
             return true;
@@ -143,14 +138,8 @@ public class TicTacToeModel {
     }
 	
     public Mark getMark(int row, int col) {
-        
-        /* Return mark from the square at the specified location */
-       if(isValidSquare(row, col)){ 
-       return grid[row][col];
-       }
-       else{
-           return null;
-       }
+        /* Return mark from the square at the specified location */ 
+        return grid[row][col];
     }
 	
     public Result getResult() {
