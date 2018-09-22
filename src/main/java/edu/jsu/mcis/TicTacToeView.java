@@ -13,10 +13,18 @@ public class TicTacToeView {
     }
 	
     public void viewModel() {
-        
+        String viewLine = "";
         /* Print the board to the console (see examples) */
         
-        /* INSERT YOUR CODE HERE */
+        System.out.println("012/n");
+        for(int i=0;i<3;i++){
+            viewLine = i + " ";
+            for(int j=0;j<3;j++){
+                viewLine += model.getMark(i,j);
+            }
+            System.out.println(viewLine);
+        }
+
 
     }
 
@@ -33,6 +41,9 @@ public class TicTacToeView {
     public void showInputError() {
 
         /* Display an error if input is invalid (see examples) */
+        //if(isValidSquare(row,col) == false){
+            System.out.println("Invalid move, try again!");
+        //}
 
     }
 
