@@ -16,7 +16,7 @@ public class TicTacToeView {
         String viewLine = "";
         /* Print the board to the console (see examples) */
         
-        System.out.println("012/n");
+        System.out.println(" 012/n");
         for(int i=0;i<3;i++){
             viewLine = i + " ";
             for(int j=0;j<3;j++){
