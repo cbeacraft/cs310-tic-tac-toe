@@ -17,9 +17,9 @@ public class TicTacToeView {
         /* Print the board to the console (see examples) */
         
         System.out.println(" 012/n");
-        for(int i=0;i<3;i++){
+        for(int i=0;i<model.getWidth();i++){
             viewLine = i + " ";
-            for(int j=0;j<3;j++){
+            for(int j=0;j<model.getWidth();j++){
                 viewLine += model.getMark(i,j);
             }
             System.out.println(viewLine);
