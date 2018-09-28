@@ -72,7 +72,7 @@ public class TicTacToeView extends JPanel implements ActionListener {
            to reflect the grid contents (use the Model's "getMark()" method). */
         for(int x=0; x < model.getWidth(); x++){
                 for(int y=0; y < model.getWidth(); y++){
-                    String text = model.getMark(x,y).tString();
+                    String text = model.getMark(x,y).toString();
                     squares[x][y].setText(text);
                 }
         
@@ -84,7 +84,7 @@ public class TicTacToeView extends JPanel implements ActionListener {
     }
         
     public void showResult(String message) {
-        STring upperCase = message.toUpperCase();
+        String upperCase = message.toUpperCase();
         resultLabel.setText(upperCase);
     }
 
